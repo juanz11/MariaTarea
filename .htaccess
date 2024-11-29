@@ -1,0 +1,12 @@
+Options -Indexes
+
+# Activamos el motor de reescritura de rutas.
+RewriteEngine on
+
+# los comandos siguientes nos permite indicar a nuestro control de redirección, .
+#estas líneas le indican al servidor
+# que cualquier nombre de archivo o directorio en una URL debe redireccionarlo
+# al archivo index.php.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?uri=$1 [NC,L,QSA]
